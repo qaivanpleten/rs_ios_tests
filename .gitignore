@@ -1,3 +1,7 @@
-.idea
+
 .DS_Store
+.idea/
+__pycache__/
 geckodriver.log
+reports/.DS_Store
+reports/repspark_reports/.DS_Store
