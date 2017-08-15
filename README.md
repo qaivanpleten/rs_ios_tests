@@ -38,3 +38,12 @@
 
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
+# How to make pull request 
+1. Create new branch 
+2. Make changes in code
+3. Commit changes
+3.1 Add Commit Message. E.g fix #isue_number
+4. Push changes
+5. On github.com click on Compare & pull request
+6. Add reviewers
+7. Create pull request
