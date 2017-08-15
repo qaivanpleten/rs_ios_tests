@@ -23,6 +23,7 @@
   "deviceName": "IPhone Simulator",
   "app": "/Users/user/Desktop/RepSpark-App/ios/build/Build/Products/Debug-iphonesimulator/repspark.app"
 }
+
 5. Save it. 
 6. Start Appium emulator session
 
