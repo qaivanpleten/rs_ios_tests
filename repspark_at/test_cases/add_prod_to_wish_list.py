@@ -1,10 +1,12 @@
 import unittest
+
+from repspark_at.actions.actions_login_page import *
 from appium import webdriver
-from actions.actions_browse_page import *
-from actions.actions_login_page import *
+
+from repspark_at.actions.actions_browse_page import *
 
 
-class add_product_to_cart(unittest.TestCase):
+class add_to_wish_list_and_delete_from_one(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         caps = {}
@@ -16,10 +18,18 @@ class add_product_to_cart(unittest.TestCase):
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
 
-    def test_add_prod(self):
+    def test_add_prod_to_wish_list(self):
         LoginPage.login_full_case(self)
+        BrowsePage.add_to_wish_list_button(self)
 
-        BrowsePage.tap_on_add_to_cart_button(self)
+        time.sleep(6)
+        self.assertTrue(self.driver.find_element_by_id("star-1-added").is_displayed())
+
+    def test_delete_from_wish_list(self):
+        BrowsePage.remove_from_wish_list_button(self)
+        time.sleep(6)
+
+        self.assertTrue(self.driver.find_element_by_id("star-1-removed").is_displayed())
 
 
 
@@ -30,4 +40,5 @@ class add_product_to_cart(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 

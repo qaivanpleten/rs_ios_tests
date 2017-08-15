@@ -1,7 +1,10 @@
-import unittest, time
+import unittest
+
 from appium import webdriver
-from actions.actions_accounts_page import *
-from elements.elements_accounts_page import *
+
+from repspark_at.actions.actions_accounts_page import *
+from repspark_at.elements.elements_accounts_page import *
+
 
 class check_acc_page_after_allowing_to_use_location_service(unittest.TestCase):
     @classmethod

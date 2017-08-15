@@ -1,10 +1,12 @@
 import unittest
+
+from repspark_at.actions.actions_login_page import *
 from appium import webdriver
-from actions.actions_browse_page import *
-from actions.actions_login_page import *
+
+from repspark_at.actions.actions_browse_page import *
 
 
-class search_product(unittest.TestCase):
+class repspark_login(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         caps = {}
@@ -16,14 +18,12 @@ class search_product(unittest.TestCase):
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
 
-    def test_1_search_product_by_id(self):
-        LoginPage.login_full_case(self)
-        BrowsePage.search_product_by_id(self, "201_5")
+    def test_login(self):
+        LoginPage.set_user_name(self, "qwerty@mail.com")
+        LoginPage.set_password(self, "root")
+        LoginPage.click_login_button(self)
 
-    def test_2_reset_search(self):
-        BrowsePage.clear_search_input(self)
-        #time.sleep(5)
-
+        BrowsePage.check_title(self)
 
     @classmethod
     def tearDownClass(cls):

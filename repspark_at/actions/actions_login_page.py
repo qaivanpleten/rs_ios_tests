@@ -1,5 +1,6 @@
-from elements.elements_login_page import *
-from elements.elements_browse_page import *
+from repspark_at.elements.elements_login_page import *
+
+from repspark_at.elements.elements_browse_page import *
 
 
 class BasePage(object):

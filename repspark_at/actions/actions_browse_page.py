@@ -1,8 +1,9 @@
-from selenium.webdriver.common.keys import Keys
 import time
-from actions.actions_login_page import *
-from mobile_functions.touch_actions import TouchAction
 
+from selenium.webdriver.common.keys import Keys
+
+from repspark_at.actions.actions_login_page import *
+from repspark_at.mobile_functions.touch_actions import TouchAction
 
 
 class BasePage(object):

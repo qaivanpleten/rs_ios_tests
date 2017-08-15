@@ -1,11 +1,13 @@
 import unittest
-import HtmlTestRunner
 
-from test_cases.acc_page_search_acc import search_accounts
-from test_cases.add_prod_to_wish_list import add_to_wish_list_and_delete_from_one
-from test_cases.browse_page_search_prod import search_product
-from test_cases.login import repspark_login
-from test_cases.allow_to_use_geo_location_service import check_acc_page_after_allowing_to_use_location_service
+import HtmlTestRunner
+from repspark_at.test_cases.acc_page_search_acc import search_accounts
+from repspark_at.test_cases.add_prod_to_wish_list import add_to_wish_list_and_delete_from_one
+from repspark_at.test_cases.browse_page_search_prod import search_product
+from repspark_at.test_cases.login import repspark_login
+
+from repspark_at.test_cases.allow_to_use_geo_location_service import \
+    check_acc_page_after_allowing_to_use_location_service
 
 # get all tests
 
@@ -22,7 +24,7 @@ suite = unittest.TestSuite((login_test, search_product_test, add_prod_to_wish_li
 #unittest.TextTestRunner(verbosity=2).run(suite)
 
 # open the report file
-outfile = open('/Users/user/PycharmProjects/repspark/reports/repspark_reports/SeleniumPythonTestsSummary.html', 'w')
+#outfile = open('/Users/user/PycharmProjects/repspark/reports/repspark_reports/SeleniumPythonTestsSummary.html', 'w')
 
 # configure HTMLTestRunner options
 runner = HtmlTestRunner.HTMLTestRunner(output='repspark_reports')

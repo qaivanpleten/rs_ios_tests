@@ -1,8 +1,12 @@
-import unittest, time
-from appium import webdriver
-from actions.actions_accounts_page import *
+import unittest
 
-class search_accounts(unittest.TestCase):
+from repspark_at.actions.actions_login_page import *
+from appium import webdriver
+
+from repspark_at.actions.actions_browse_page import *
+
+
+class search_product(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         caps = {}
@@ -14,20 +18,13 @@ class search_accounts(unittest.TestCase):
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
 
-    def test_1_open_acc_page(self):
-        AccountsPage.open_account_details_page(self)
-        try:
-            AccountsPage.allow_to_use_location(self)
-        except:
-            pass
-        time.sleep(5)
-        AccountsPage.check_title(self)
+    def test_1_search_product_by_id(self):
+        LoginPage.login_full_case(self)
+        BrowsePage.search_product_by_id(self, "201_5")
 
-    def test_2_search_account(self):
-        AccountsPage.search_accounts_by_name(self, "Nike")
-
-    def test_3_reset_search(self):
-        AccountsPage.clear_search_input(self)
+    def test_2_reset_search(self):
+        BrowsePage.clear_search_input(self)
+        #time.sleep(5)
 
 
     @classmethod
