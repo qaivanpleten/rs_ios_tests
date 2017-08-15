@@ -1,6 +1,7 @@
-from elements.elements_accounts_page import *
 from selenium.webdriver.common.keys import Keys
-from actions.actions_login_page import *
+
+from repspark_at.actions.actions_login_page import *
+from repspark_at.elements.elements_accounts_page import *
 
 
 class BasePage(object):

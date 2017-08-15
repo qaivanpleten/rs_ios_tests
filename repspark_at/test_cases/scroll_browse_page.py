@@ -1,7 +1,10 @@
-import unittest, time
+import unittest
+
+from repspark_at.actions.actions_login_page import *
 from appium import webdriver
-from actions.actions_browse_page import *
-from actions.actions_login_page import *
+
+from repspark_at.actions.actions_browse_page import *
+
 
 class scroll_browser_page(unittest.TestCase):
     @classmethod

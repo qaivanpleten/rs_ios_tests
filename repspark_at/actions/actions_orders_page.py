@@ -1,5 +1,5 @@
-from actions.actions_login_page import *
-from elements.elements_orders_page import *
+from repspark_at.actions.actions_login_page import *
+from repspark_at.elements.elements_orders_page import *
 
 
 class BasePage(object):

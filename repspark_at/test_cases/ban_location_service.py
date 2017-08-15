@@ -1,8 +1,11 @@
-import unittest, time
-from appium import webdriver
-from actions.actions_orders_page import *
+import unittest
 
-class search_order(unittest.TestCase):
+from appium import webdriver
+
+from repspark_at.actions.actions_accounts_page import *
+
+
+class check_acc_page_after_with_banned_location_service(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         caps = {}
@@ -14,8 +17,20 @@ class search_order(unittest.TestCase):
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
 
-    def test_1_open_orders_page(self):
-        OrdersPage.open_orders_page(self)
+    def test_check_the_page(self):
+        LoginPage.login_full_case(self)
+        AccountsPage.open_acc_page(self)
+        try:
+            AccountsPage.dont_allow_to_use_location(self)
+            AccountsPage.accept_location_modal(self)
+        except:
+            try:
+                AccountsPage.accept_location_modal(self)
+            except:
+                pass
+
+        AccountsPage.check_title(self)
+
 
     @classmethod
     def tearDownClass(cls):
