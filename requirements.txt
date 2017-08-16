@@ -1,0 +1,4 @@
+.ignore==1.7.6
+selenium
+pip install HtmlTestRunner
+pip install appium
