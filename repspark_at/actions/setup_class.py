@@ -1,7 +1,10 @@
+import unittest
+
 from appium import webdriver
 
-class setUpClass('???????????????'):
-    #@classmethod  I'm not sure if I should use classmethod here
+
+class SetUpClass(unittest.TestCase):
+    @classmethod
     def setUpClass(cls):
         caps = {}
         caps["platformName"] = "iOS"
@@ -12,11 +15,6 @@ class setUpClass('???????????????'):
         cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         cls.driver.implicitly_wait(10)
 
-        return '???????????'
-
-
-    #@classmethod  I'm not sure if I should use classmethod here
+    @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
-
-        return '??????????'

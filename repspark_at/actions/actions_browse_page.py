@@ -50,7 +50,6 @@ class BrowsePage(BasePage):
         self.assertTrue(star_button.is_displayed())
         star_button.click()
 
-
     def open_cart(self):
         LoginPage.login_full_case(self)
         self.assertTrue((BrowsePageElements.cart_button(self)).is_displayed())
@@ -60,8 +59,12 @@ class BrowsePage(BasePage):
     def tap_on_add_to_cart_button(self):
         (BrowsePageElements.add_to_cart_button(self, 2)).click()
 
+
+class Swipe(TouchAction):
     def swipe(self, start_x, start_y, end_x, end_y, duration=None):
-        action = TouchAction(self).press(x=start_x, y=start_y).wait(ms=duration).move_to(x=end_x, y=end_y).release()
-        action.perform()
+        action = TouchAction(self).press(x=start_x, y=start_y).wait(ms=duration).move_to(x=end_x,
+                                                                                                y=end_y).release()
+        action.perform(self)
+
 
         return self

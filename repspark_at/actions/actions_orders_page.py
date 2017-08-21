@@ -8,7 +8,6 @@ class BasePage(object):
 
 
 class OrdersPage(BasePage):
-
     def open_orders_page(self):
         LoginPage.login_full_case(self)
         OrdersPageElements.orders_button_in_router(self).click()

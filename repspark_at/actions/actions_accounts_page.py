@@ -28,7 +28,7 @@ class AccountsPage(BasePage):
 
         # check product's ID (first product in the list)
         self.assertTrue(AccountsPageElements.account_name(self, '//XCUIElementTypeStaticText[@name=\"'
-                                                             + acc_name + '\"]'))
+                                                          + acc_name + '\"]'))
 
     def clear_search_input(self):
         reset_search_button = BrowsePageElements.reset_search_button(self)
