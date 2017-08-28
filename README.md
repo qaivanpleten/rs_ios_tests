@@ -1,4 +1,4 @@
-# Authotest python scripts to test IOs app with Appium
+# Autotest python scripts to test IOs app with Appium
 
 # Basic instalation 
 
