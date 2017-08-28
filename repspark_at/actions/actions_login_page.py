@@ -1,14 +1,13 @@
-from repspark_at.elements.elements_login_page import *
-
 from repspark_at.elements.elements_browse_page import *
+from repspark_at.elements.elements_login_page import *
 
 
 class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
 
-class LoginPage(BasePage):
 
+class LoginPage(BasePage):
     def set_user_name(self, username):
         email_field = LoginPageElements.email_field(self)
         self.assertTrue(email_field.is_displayed())
@@ -25,7 +24,7 @@ class LoginPage(BasePage):
         login_button = LoginPageElements.login_button(self)
         self.assertTrue(login_button.is_displayed())
         login_button.click()
-        #time.sleep(5)
+        # time.sleep(5)
 
     def login_full_case(self):
         email_field = LoginPageElements.email_field(self)
@@ -43,4 +42,3 @@ class LoginPage(BasePage):
         login_button.click()
 
         self.assertTrue(BrowsePageElements.browse_page_title(self).is_displayed())
-

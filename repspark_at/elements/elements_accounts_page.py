@@ -1,5 +1,4 @@
 class AccountsPageElements(object):
-
     def accounts_page_in_router(self):
         return self.driver.find_element_by_xpath("//XCUIElementTypeOther[@name=\" Accounts\"]")
 
@@ -13,7 +12,7 @@ class AccountsPageElements(object):
         return self.driver.find_element_by_xpath("//XCUIElementTypeStaticText[@name=\"\"]")
 
     def account_name(self, acc_name):
-         return self.driver.find_element_by_xpath(acc_name)
+        return self.driver.find_element_by_xpath(acc_name)
 
     # popup - allow or not to use geo location service
     def allow_button(self):
@@ -23,4 +22,5 @@ class AccountsPageElements(object):
         return self.driver.find_element_by_xpath("//XCUIElementTypeButton[@name=\"Don’t Allow\"]")
 
     def accept_button(self):
-        return self.driver.find_element_by_xpath("//XCUIElementTypeApplication[@name=\"repspark\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther")
+        return self.driver.find_element_by_xpath(
+            "//XCUIElementTypeApplication[@name=\"repspark\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther")

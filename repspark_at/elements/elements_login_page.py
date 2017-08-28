@@ -7,5 +7,3 @@ class LoginPageElements(object):
 
     def login_button(self):
         return self.driver.find_element_by_id("login-button")
-
-

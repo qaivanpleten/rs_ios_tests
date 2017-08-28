@@ -1,23 +1,11 @@
 import time
 import unittest
 
-from appium import webdriver
-
 from repspark_at.actions.actions_accounts_page import *
+from repspark_at.actions.setup_class import SetUpClass
 
 
-class search_accounts(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        caps = {}
-        caps["platformName"] = "iOS"
-        caps["platformVersion"] = "10.3"
-        caps["deviceName"] = "IPhone Simulator"
-        caps["app"] = "/Users/user/Desktop/RepSpark-App/ios/build/Build/Products/Debug-iphonesimulator/repspark.app"
-
-        cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
-        cls.driver.implicitly_wait(10)
-
+class SearchAccount(SetUpClass):
     def test_1_open_acc_page(self):
         AccountsPage.open_account_details_page(self)
         try:
@@ -34,10 +22,5 @@ class search_accounts(unittest.TestCase):
         AccountsPage.clear_search_input(self)
 
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
-
 if __name__ == '__main__':
     unittest.main()
-
