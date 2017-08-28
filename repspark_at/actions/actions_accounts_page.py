@@ -33,7 +33,6 @@ class AccountsPage(BasePage):
     def clear_search_input(self):
         reset_search_button = BrowsePageElements.reset_search_button(self)
         reset_search_button.click()
-
         self.assertTrue(AccountsPageElements.accounts_page_title(self))
 
     def open_account_details_page(self):
