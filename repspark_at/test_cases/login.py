@@ -11,17 +11,8 @@ class AppLogin(SetUpClass):
         login_page.set_password("root")
         login_page.click_login_button()
 
-        # LoginPage.set_user_name(self, "qwerty@mail.com")
-        # LoginPage.set_password(self, "root")
-        # LoginPage.click_login_button(self)
-
-
-        BrowsePage.check_title(self)
-        #BrowsePage(self.driver).check_title()
-
-        #self.assertTrue(BrowsePage(self.driver).opened())
+        self.assertTrue(BrowsePage(self.driver).opened())
 
 
 if __name__ == '__main__':
     unittest.main()
-

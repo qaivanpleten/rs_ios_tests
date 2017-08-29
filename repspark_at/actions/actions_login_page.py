@@ -9,39 +9,36 @@ class BasePage(object):
 class LoginPage(BasePage):
     def set_user_name(self, username):
         email_field = LoginPageElements.email_field(self)
-        self.assertTrue(email_field.is_displayed())
-        #assert True, email_field.is_displayed
+        assert email_field.is_displayed(), "email field isn't displayed"
         email_field.click()
         email_field.send_keys(username)
 
     def set_password(self, password):
         password_field = LoginPageElements.password_field(self)
-        #self.assertTrue(password_field.is_displayed())
-        #assert password_field.is_displayed(), "password field isn't displayed"
+        assert password_field.is_displayed(), "password field isn't displayed"
         password_field.click()
         password_field.send_keys(password)
 
     def click_login_button(self):
         login_button = LoginPageElements.login_button(self)
-        #self.assertTrue(login_button.is_displayed())
-        assert True, login_button.is_displayed
+        assert login_button.is_displayed(), "login button isn't displayed"
         login_button.click()
         # time.sleep(5)
 
     def login_full_case(self):
         email_field = LoginPageElements.email_field(self)
-        self.assertTrue(email_field.is_displayed())
+        assert email_field.is_displayed(), "email field isn't displayed"
 
         email_field.click()
         email_field.send_keys("johndoe@gmail.com")
 
         password_field = LoginPageElements.password_field(self)
-        self.assertTrue(password_field.is_displayed())
+        assert password_field.is_displayed(), "password field isn't displayed"
         password_field.click()
         password_field.send_keys("root")
 
         login_button = LoginPageElements.login_button(self)
-        self.assertTrue(login_button.is_displayed())
+        assert login_button.is_displayed(), "login button isn't displayed"
         login_button.click()
 
-        self.assertTrue(BrowsePageElements.browse_page_title(self).is_displayed())
+        assert (BrowsePageElements.browse_page_title(self)).is_displayed(), "Browser page title isn't displayed"
