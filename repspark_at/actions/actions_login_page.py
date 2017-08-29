@@ -9,15 +9,15 @@ class BasePage(object):
 class LoginPage(BasePage):
     def set_user_name(self, username):
         email_field = LoginPageElements.email_field(self)
-        #self.assertTrue(email_field.is_displayed())
-        assert True, email_field.is_displayed
+        self.assertTrue(email_field.is_displayed())
+        #assert True, email_field.is_displayed
         email_field.click()
         email_field.send_keys(username)
 
     def set_password(self, password):
         password_field = LoginPageElements.password_field(self)
         #self.assertTrue(password_field.is_displayed())
-        assert True, password_field.is_displayed
+        #assert password_field.is_displayed(), "password field isn't displayed"
         password_field.click()
         password_field.send_keys(password)
 

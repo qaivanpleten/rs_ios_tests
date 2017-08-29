@@ -15,7 +15,11 @@ class AppLogin(SetUpClass):
         # LoginPage.set_password(self, "root")
         # LoginPage.click_login_button(self)
 
+
         BrowsePage.check_title(self)
+        #BrowsePage(self.driver).check_title()
+
+        #self.assertTrue(BrowsePage(self.driver).opened())
 
 
 if __name__ == '__main__':
