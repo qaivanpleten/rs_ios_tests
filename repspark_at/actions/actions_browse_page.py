@@ -66,7 +66,8 @@ class BrowsePage(BasePage):
 class Swipe(TouchAction):
     def swipe(self, start_x, start_y, end_x, end_y, duration=None):
         action = TouchAction(self).press(x=start_x, y=start_y).wait(ms=duration).move_to(x=end_x,
-                                                                                         y=end_y).release()
+
+                                                                                                y=end_y).release()
         action.perform(self)
 
         return self

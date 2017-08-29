@@ -15,7 +15,6 @@ class AppLogin(SetUpClass):
         # LoginPage.set_password(self, "root")
         # LoginPage.click_login_button(self)
 
-
         BrowsePage.check_title(self)
         #BrowsePage(self.driver).check_title()
 
@@ -24,4 +23,3 @@ class AppLogin(SetUpClass):
 
 if __name__ == '__main__':
     unittest.main()
-
