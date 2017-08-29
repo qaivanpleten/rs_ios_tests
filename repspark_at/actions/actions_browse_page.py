@@ -12,6 +12,9 @@ class BasePage(object):
 
 
 class BrowsePage(BasePage):
+    def opened(self):
+         return BrowsePageElements.browse_page_title(self).is_displayed()
+
     def check_title(self):
         browse_title = BrowsePageElements.browse_page_title(self)
         self.assertTrue(browse_title.is_displayed())
@@ -62,9 +65,7 @@ class BrowsePage(BasePage):
 
 class Swipe(TouchAction):
     def swipe(self, start_x, start_y, end_x, end_y, duration=None):
-        action = TouchAction(self).press(x=start_x, y=start_y).wait(ms=duration).move_to(x=end_x,
-                                                                                                y=end_y).release()
+        action = TouchAction(self).press(x=start_x, y=start_y).wait(ms=duration).move_to(x=end_x, y=end_y).release()
         action.perform(self)
-
 
         return self
