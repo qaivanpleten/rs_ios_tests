@@ -15,7 +15,14 @@ class BrowsePageElements(object):
         return self.driver.find_element_by_xpath('//XCUIElementTypeOther[@name=\"clear-button\"]')
 
     def star_button_disabled(self):
+        # for n in range(3):
+        #     if self.driver.find_element_by_id("star-" + str(n) + "-removed").is_displayed:
+        #         button = self.driver.find_element_by_id("star-" + str(n) + "-removed")
+        #
+        # return button
+
         return self.driver.find_element_by_id("star-1-removed")
+
 
     def star_button_enabled(self):
         return self.driver.find_element_by_id("star-1-added")
