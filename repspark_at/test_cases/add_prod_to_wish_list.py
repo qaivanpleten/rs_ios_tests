@@ -10,7 +10,8 @@ class AddToWishListTesting(SetUpClass):
         BrowsePage.add_to_wish_list_button(self)
 
         time.sleep(6)
-        self.assertTrue(self.driver.find_element_by_id("star-1-added").is_displayed())
+        assert self.driver.find_element_by_id(
+            "star-1-added").is_displayed(), "Product wasn't added to wish list. Orange button isn't displayed"
 
 
 class DeleteFromWishList(SetUpClass):
@@ -19,7 +20,8 @@ class DeleteFromWishList(SetUpClass):
         BrowsePage.remove_from_wish_list_button(self)
         time.sleep(6)
 
-        self.assertTrue(self.driver.find_element_by_id("star-1-removed").is_displayed())
+        assert self.driver.find_element_by_id(
+            "star-1-removed").is_displayed(), "Product wasn't deleted from wish list. Gray button isn't dispalayed"
 
 
 if __name__ == '__main__':

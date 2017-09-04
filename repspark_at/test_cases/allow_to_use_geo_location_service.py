@@ -15,8 +15,8 @@ class CheckAccPageAllowToUseLocation(SetUpClass):
             pass
 
         AccountsPage.check_title(self)
-        self.assertTrue(AccountsPageElements.near_you_title(self).is_displayed())
-        self.assertTrue(AccountsPageElements.near_you_icon(self).is_displayed())
+        assert AccountsPageElements.near_you_title(self).is_displayed(), "Title 'Located near you' isn't displayed"
+        assert AccountsPageElements.near_you_icon(self).is_displayed(), "'Near you' icon isn't displayed"
 
 
 if __name__ == '__main__':
