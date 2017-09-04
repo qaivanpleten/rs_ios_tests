@@ -16,24 +16,25 @@ class AccountsPage(BasePage):
 
     def check_title(self):
         acc_title = AccountsPageElements.accounts_page_title(self)
-        self.assertTrue(acc_title.is_displayed())
+        assert acc_title.is_displayed(), "Account page title isn't displayed"
 
     def search_accounts_by_name(self, acc_name):
         search_input = BrowsePageElements.search_input(self)
-        self.assertTrue(search_input.is_displayed())
+        assert search_input.is_displayed(), "Search field isn't displayed"
         search_input.click()
         search_input.clear()
         search_input.send_keys(acc_name)
         search_input.send_keys(Keys.RETURN)
 
         # check product's ID (first product in the list)
-        self.assertTrue(AccountsPageElements.account_name(self, '//XCUIElementTypeStaticText[@name=\"'
-                                                          + acc_name + '\"]'))
+        assert (AccountsPageElements.account_name(self, '//XCUIElementTypeStaticText[@name=\"'
+                                                  + acc_name + '\"]')).is_displayed(), \
+            "ID of the first product in the list is wrong or thee isn't any product"
 
     def clear_search_input(self):
         reset_search_button = BrowsePageElements.reset_search_button(self)
         reset_search_button.click()
-        self.assertTrue(AccountsPageElements.accounts_page_title(self))
+        AccountsPage.check_title(self)
 
     def open_account_details_page(self):
         LoginPage.login_full_case(self)

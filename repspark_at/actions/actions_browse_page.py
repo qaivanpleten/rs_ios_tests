@@ -13,49 +13,57 @@ class BasePage(object):
 
 class BrowsePage(BasePage):
     def opened(self):
-         return BrowsePageElements.browse_page_title(self).is_displayed()
+        return BrowsePageElements.browse_page_title(self).is_displayed()
 
     def check_title(self):
         browse_title = BrowsePageElements.browse_page_title(self)
-        self.assertTrue(browse_title.is_displayed())
+        assert browse_title.is_displayed(), "Browse page title isn't displayed"
 
     def search_product_by_id(self, product_id):
         search_input = BrowsePageElements.search_input(self)
-        self.assertTrue(search_input.is_displayed())
+        assert search_input.is_displayed(), "Search input field isn't displayed"
         search_input.click()
         search_input.clear()
         search_input.send_keys(product_id)
         search_input.send_keys(Keys.RETURN)
 
         # check product's ID (first product in the list)
-        self.assertTrue(BrowsePageElements.product_id_string(self, '//XCUIElementTypeStaticText[@name=\"'
-                                                             + product_id + '\"]'))
+        assert (BrowsePageElements.product_id_string(self, '//XCUIElementTypeStaticText[@name=\"'
+                                                     + product_id + '\"]')).is_displayed, \
+            "Product isn't found. Product title isn't displayed"
+
         # check product's NAME (first one in the list)
-        self.assertTrue(BrowsePageElements.product_name_string(self, '//XCUIElementTypeStaticText[@name=\"Pant_005\"]'))
+        assert (
+        BrowsePageElements.product_name_string(self, '//XCUIElementTypeStaticText[@name=\"Pant_005\"]')).is_displayed, \
+            "First product isn't displayed"
 
     def clear_search_input(self):
         reset_search_button = BrowsePageElements.reset_search_button(self)
         reset_search_button.click()
 
         # check product's ID (first product in the list)
-        self.assertTrue(BrowsePageElements.product_id_string(self, '//XCUIElementTypeStaticText[@name=\"201_0\"]'))
+        assert (
+        BrowsePageElements.product_id_string(self, '//XCUIElementTypeStaticText[@name=\"201_0\"]')).is_displayed, \
+            "Product isn't displayed"
 
         # check product's NAME (first one in the list)
-        self.assertTrue(BrowsePageElements.product_name_string(self, '//XCUIElementTypeStaticText[@name=\"Pant_000\"]'))
+        assert (
+        BrowsePageElements.product_name_string(self, '//XCUIElementTypeStaticText[@name=\"Pant_000\"]')).is_displayed, \
+            "Product isn't displayed"
 
     def add_to_wish_list_button(self):
         star_button = BrowsePageElements.star_button_disabled(self)
-        self.assertTrue(star_button.is_displayed())
+        assert star_button.is_displayed(), "Star button isn't displayed"
         star_button.click()
 
     def remove_from_wish_list_button(self):
         star_button = BrowsePageElements.star_button_enabled(self)
-        self.assertTrue(star_button.is_displayed())
+        assert star_button.is_displayed(), "Star button isn't displayed"
         star_button.click()
 
     def open_cart(self):
         LoginPage.login_full_case(self)
-        self.assertTrue((BrowsePageElements.cart_button(self)).is_displayed())
+        assert (BrowsePageElements.cart_button(self)).is_displayed(), "Cart button isn't displayed"
         (BrowsePageElements.cart_button(self)).click()
         time.sleep(5)
 

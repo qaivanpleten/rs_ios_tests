@@ -11,7 +11,7 @@ class AppLogin(SetUpClass):
         login_page.set_password("root")
         login_page.click_login_button()
 
-        self.assertTrue(BrowsePage(self.driver).opened())
+        assert BrowsePage(self.driver).opened(), "Browse page title isn't opened"
 
 
 if __name__ == '__main__':

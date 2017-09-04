@@ -11,4 +11,4 @@ class OrdersPage(BasePage):
     def open_orders_page(self):
         LoginPage.login_full_case(self)
         OrdersPageElements.orders_button_in_router(self).click()
-        self.assertTrue(OrdersPageElements.orders_page_title(self).is_displayed())
+        assert OrdersPageElements.orders_page_title(self).is_displayed(), "Orders page title isn't displayed"
