@@ -6,8 +6,8 @@ from repspark_at.actions.setup_class import SetUpClass
 
 class AddToWishListTesting(SetUpClass):
     def test_add_prod_to_wish_list(self):
-        LoginPage.login_full_case(self)
-        BrowsePage.add_to_wish_list_button(self)
+        LoginPage(self.driver).login_full_case()
+        BrowsePage(self.driver).add_to_wish_list_button()
 
         time.sleep(6)
         assert self.driver.find_element_by_id(
@@ -17,7 +17,7 @@ class AddToWishListTesting(SetUpClass):
 class DeleteFromWishList(SetUpClass):
     def test_delete_from_wish_list(self):
         AddToWishListTesting.test_add_prod_to_wish_list(self)
-        BrowsePage.remove_from_wish_list_button(self)
+        BrowsePage(self.driver).remove_from_wish_list_button()
         time.sleep(6)
 
         assert self.driver.find_element_by_id(

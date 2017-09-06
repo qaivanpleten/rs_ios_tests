@@ -11,15 +11,15 @@ class BasePage(object):
 
 class AccountsPage(BasePage):
     def open_acc_page(self):
-        acc_button = AccountsPageElements.accounts_page_in_router(self)
+        acc_button = AccountsPageElements(self.driver).accounts_page_in_router()
         acc_button.click()
 
     def check_title(self):
-        acc_title = AccountsPageElements.accounts_page_title(self)
+        acc_title = AccountsPageElements(self.driver).accounts_page_title()
         assert acc_title.is_displayed(), "Account page title isn't displayed"
 
     def search_accounts_by_name(self, acc_name):
-        search_input = BrowsePageElements.search_input(self)
+        search_input = BrowsePageElements(self.driver).search_input()
         assert search_input.is_displayed(), "Search field isn't displayed"
         search_input.click()
         search_input.clear()
@@ -27,24 +27,26 @@ class AccountsPage(BasePage):
         search_input.send_keys(Keys.RETURN)
 
         # check product's ID (first product in the list)
-        assert (AccountsPageElements.account_name(self, '//XCUIElementTypeStaticText[@name=\"'
+        assert (AccountsPageElements(self.driver).account_name('//XCUIElementTypeStaticText[@name=\"'
+
                                                   + acc_name + '\"]')).is_displayed(), \
             "ID of the first product in the list is wrong or thee isn't any product"
 
     def clear_search_input(self):
-        reset_search_button = BrowsePageElements.reset_search_button(self)
+        reset_search_button = BrowsePageElements(self.driver).reset_search_button()
         reset_search_button.click()
-        AccountsPage.check_title(self)
+        AccountsPage(self.driver).check_title()
+
 
     def open_account_details_page(self):
-        LoginPage.login_full_case(self)
-        AccountsPage.open_acc_page(self)
+        LoginPage(self.driver).login_full_case()
+        AccountsPage(self.driver).open_acc_page()
 
     def allow_to_use_location(self):
-        AccountsPageElements.allow_button(self).click()
+        AccountsPageElements(self.driver).allow_button().click()
 
     def dont_allow_to_use_location(self):
-        AccountsPageElements.dont_allow_button(self).click()
+        AccountsPageElements(self.driver).dont_allow_button().click()
 
     def accept_location_modal(self):
-        AccountsPageElements.accept_button(self).click()
+        AccountsPageElements(self.driver).accept_button().click()

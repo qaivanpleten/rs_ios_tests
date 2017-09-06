@@ -1,4 +1,10 @@
-class BrowsePageElements(object):
+from selenium.common.exceptions import NoSuchElementException
+
+
+class BrowsePageElements:
+    def __init__(self, driver):
+        self.driver = driver
+
     def browse_page_title(self):
         return self.driver.find_element_by_xpath("//XCUIElementTypeStaticText[@name=\"Browse\"]")
 
@@ -15,14 +21,14 @@ class BrowsePageElements(object):
         return self.driver.find_element_by_xpath('//XCUIElementTypeOther[@name=\"clear-button\"]')
 
     def star_button_disabled(self):
-        # for n in range(3):
-        #     if self.driver.find_element_by_id("star-" + str(n) + "-removed").is_displayed:
-        #         button = self.driver.find_element_by_id("star-" + str(n) + "-removed")
-        #
-        # return button
+        for n in range(3):
+            try:
+                return self.driver.find_element_by_id("star-" + str(n) + "-removed")
 
-        return self.driver.find_element_by_id("star-1-removed")
+            except NoSuchElementException:
+                continue
 
+        raise Exception("There aren't any disabled star-buttons")
 
     def star_button_enabled(self):
         return self.driver.find_element_by_id("star-1-added")
