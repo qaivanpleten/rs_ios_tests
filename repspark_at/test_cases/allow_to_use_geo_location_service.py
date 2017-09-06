@@ -21,6 +21,5 @@ class CheckAccPageAllowToUseLocation(SetUpClass):
             self.driver).near_you_title().is_displayed(), "Title 'Located near you' isn't displayed"
         assert AccountsPageElements(self.driver).near_you_icon().is_displayed(), "'Near you' icon isn't displayed"
 
-
 if __name__ == '__main__':
     unittest.main()

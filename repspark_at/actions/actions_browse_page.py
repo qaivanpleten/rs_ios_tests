@@ -21,6 +21,7 @@ class BrowsePage(BasePage):
 
     def search_product_by_id(self, product_id):
         search_input = BrowsePageElements(self.driver).search_input()
+
         assert search_input.is_displayed(), "Search input field isn't displayed"
         search_input.click()
         search_input.clear()
@@ -36,6 +37,7 @@ class BrowsePage(BasePage):
         assert (
             BrowsePageElements(self.driver).product_name_string(
                 '//XCUIElementTypeStaticText[@name=\"Pant_005\"]')).is_displayed, \
+
             "First product isn't displayed"
 
     def clear_search_input(self):

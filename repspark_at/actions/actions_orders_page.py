@@ -12,3 +12,4 @@ class OrdersPage(BasePage):
         LoginPage(self.driver).login_full_case()
         OrdersPageElements(self.driver).orders_button_in_router().click()
         assert OrdersPageElements(self.driver).orders_page_title().is_displayed(), "Orders page title isn't displayed"
+

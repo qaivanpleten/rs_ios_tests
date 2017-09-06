@@ -28,6 +28,7 @@ class AccountsPage(BasePage):
 
         # check product's ID (first product in the list)
         assert (AccountsPageElements(self.driver).account_name('//XCUIElementTypeStaticText[@name=\"'
+
                                                   + acc_name + '\"]')).is_displayed(), \
             "ID of the first product in the list is wrong or thee isn't any product"
 
@@ -35,6 +36,7 @@ class AccountsPage(BasePage):
         reset_search_button = BrowsePageElements(self.driver).reset_search_button()
         reset_search_button.click()
         AccountsPage(self.driver).check_title()
+
 
     def open_account_details_page(self):
         LoginPage(self.driver).login_full_case()
