@@ -6,9 +6,8 @@ from repspark_at.actions.setup_class import SetUpClass
 
 class AddProductToCart(SetUpClass):
     def test_add_prod(self):
-        LoginPage.login_full_case(self)
-
-        BrowsePage.tap_on_add_to_cart_button(self)
+        LoginPage(self.driver).login_full_case()
+        BrowsePage(self.driver).tap_on_add_to_cart_button()
 
 
 if __name__ == '__main__':

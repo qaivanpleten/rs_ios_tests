@@ -1,4 +1,7 @@
-class AccountsPageElements(object):
+class AccountsPageElements:
+    def __init__(self, driver):
+        self.driver = driver
+
     def accounts_page_in_router(self):
         return self.driver.find_element_by_xpath("//XCUIElementTypeOther[@name=\" Accounts\"]")
 

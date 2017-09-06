@@ -1,9 +1,9 @@
 from appium.webdriver.mobilecommand import MobileCommand as Command
 import copy
 
-class TouchAction(object):
+class TouchAction:
     def __init__(self, driver=None):
-        self._driver = driver
+        self.driver = driver
         self._actions = []
 
     def tap(self, element=None, x=None, y=None, count=1):
@@ -41,7 +41,7 @@ class TouchAction(object):
 
     def perform(self):
         params = {'action': self._actions}
-        self._driver.execute(Command.TOUCH_ACTION, params)
+        self.driver.execute(Command.TOUCH_ACTION, params)
         self._actions = []
 
         return self

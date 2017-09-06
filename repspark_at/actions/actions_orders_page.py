@@ -9,6 +9,6 @@ class BasePage(object):
 
 class OrdersPage(BasePage):
     def open_orders_page(self):
-        LoginPage.login_full_case(self)
-        OrdersPageElements.orders_button_in_router(self).click()
-        assert OrdersPageElements.orders_page_title(self).is_displayed(), "Orders page title isn't displayed"
+        LoginPage(self.driver).login_full_case()
+        OrdersPageElements(self.driver).orders_button_in_router().click()
+        assert OrdersPageElements(self.driver).orders_page_title().is_displayed(), "Orders page title isn't displayed"
